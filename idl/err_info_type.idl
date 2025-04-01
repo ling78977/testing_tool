@@ -1,0 +1,51 @@
+const uint32 ERR_CODE_INFO_MAX_LEN = 128; 
+
+enum midware_err_type_e {
+    MIDWARE_ERR_PERCEPTION_TIMEOUT,
+    MIDWARE_ERR_INVALID
+};
+
+module error_info
+{
+  @final
+  struct mcu_proxy_t
+  {
+      midware_err_type_e type;
+  };
+};
+
+@final
+struct system_error_code_t
+{
+    int32 code;
+};
+
+@final
+struct system_power_off_inform_t
+{
+    int32 reserve;
+};
+
+@final
+struct perception_error_code_t
+{
+  double timestamp;
+  int32 status;
+};
+
+@final
+struct iot_ctrl_t
+{
+    uint8 recvDeviceId;
+    uint8 sendDeviceId;
+    uint16 seqs;
+    uint16 datalen;
+    int32  errcode;
+    char data[10240];
+};
+
+@final
+struct system_event_code_t
+{
+    int32 code;
+};

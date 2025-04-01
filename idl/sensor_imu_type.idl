@@ -1,0 +1,15 @@
+module imu {
+  @final
+  struct data_t {
+    double temp;
+    double ax; 
+    double ay;
+    double az;
+    double gx;
+    double gy;
+    double gz;
+    double stamp;
+    uint32 id;
+  };
+
+};

@@ -1,0 +1,11 @@
+const uint32 ERR_CODE_INFO_MAX_LEN = 128; 
+
+module dirty
+{
+  @final
+  struct detect_result_t
+  {
+    double timestamp;
+    int32 status;
+  };
+};

@@ -1,0 +1,15 @@
+enum dds_net_type_e {
+	DDS_NET_TYPE_NONE,
+	DDS_NET_TYPE_WIFI,
+	DDS_NET_TYPE_MNET,	
+	DDS_NET_TYPE_DEF_MAX_
+};
+
+module net_info
+{
+	@final
+	struct status {
+		dds_net_type_e cur_net;
+	};
+};
+

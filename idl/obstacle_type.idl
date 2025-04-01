@@ -1,0 +1,80 @@
+
+@final
+struct obstacle_point_t
+{
+    float x;
+    float y;
+};
+@final
+struct obstacle_t
+{
+    uint8 label;
+    int32 num;
+    obstacle_point_t points[1000];
+};
+
+@final
+struct obstacle_s_t
+{
+    uint8 status;
+    int32 num;
+    obstacle_t obstacles[100];
+    double timestamp;
+};
+
+@final
+struct obstacle_statistics_t
+{
+    float mean;
+    float var;
+};
+
+@final
+struct obstacle_statistics_s_t
+{
+    double timestamp;
+    int32 num;
+    obstacle_statistics_t statistics[20];
+};
+
+@final
+struct obstacle_point_visualization_t
+{
+    int8 x;
+    int8 y;
+};
+
+@final
+struct obstacle_visualization_t
+{
+    uint8 label;
+    int32 num;
+    obstacle_point_visualization_t points[200];
+};
+
+@final
+struct obstacles_visualization_t
+{
+    uint8 status;
+    int32 num;
+    obstacle_visualization_t obstacles[20];
+    double timestamp;
+    float scale;
+};
+
+@final
+struct boundary_t
+{
+  uint8 label;
+  int32 num;
+  obstacle_point_t points[2000];
+};
+
+@final
+struct boundaries_t
+{
+   uint8 status;
+   int32 num;
+   boundary_t boundaries[50];
+   double timestamp;
+};

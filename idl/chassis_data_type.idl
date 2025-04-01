@@ -1,0 +1,33 @@
+module chassis {
+    @final
+    struct data_t {
+        uint8 data[64];
+    };
+
+    @final
+    struct simulation_data_t {
+        uint8 bumper_is_ignore;
+        uint8 ultra_is_enbale;
+        uint8 bat_is_simulate;
+        uint8 charger_is_simulate;
+        uint8 rtk_is_simulate;
+    };
+};
+
+@final
+struct maintain_data_t {
+    double mileage;
+    uint32 work_time;
+    uint16 bat1_cycles;
+    uint16 bat2_cycles;
+};
+
+@final
+struct wheel_pos_data_t {
+    uint16 wl_sl;
+    uint16 wl_sm;
+    uint16 wl_sr;
+    uint16 wr_sl;
+    uint16 wr_sm;
+    uint16 wr_sr;
+};

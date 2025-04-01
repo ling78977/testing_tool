@@ -1,0 +1,31 @@
+@final
+struct detection_rect_t
+{
+   int32 x;
+   int32 y;
+   int32 width;
+   int32 height;
+   int32 label;  
+};
+
+
+@final
+struct perception_detection_result_t
+{   
+   detection_rect_t detection_rect[10];
+   int32 num;
+   double timestamp;
+};
+
+struct lane_line_point_t
+{
+   int32 x;
+   int32 y;
+};
+
+struct lane_line_s_t
+{
+   int32 num;
+   lane_line_point_t points[100];
+   double timestamp;
+};

@@ -1,0 +1,144 @@
+module vio
+{
+   @final
+   struct state_t
+   {
+      double stamp;
+      double x;
+      double y;
+      double z;
+      double qw;
+      double qx;
+      double qy;
+      double qz;
+      double vx;
+      double vy;
+      double vz;
+      double bax;
+      double bay;
+      double baz;
+      double bgx;
+      double bgy;
+      double bgz;
+      double td;
+      uint8 solver_flag;
+      uint8 gnss_align;
+      uint8 zupt_state;
+      uint8 failure_occur;
+      uint32 last_track_num;
+   };
+
+   @final
+   struct to_app_msg_t
+   {
+      double x;
+      double y;
+      double heading;
+      uint8 vio_state;
+      uint8 brightness;
+      uint16 detect_feature_num;
+      uint16 track_feature_num;
+   };
+
+   @final
+   struct pose_t
+   {
+      double stamp;
+      double x;
+      double y;
+      double z;
+      double qw;
+      double qx;
+      double qy;
+      double qz;
+      uint8  solver_flag;
+      uint8  gnss_align;
+      uint8  failure_occur;
+   };
+};
+
+@final
+struct odom_pos_t
+{
+   double stamp;
+   double x;
+   double y;
+   double heading;
+};
+
+module ins
+{
+   @final
+   struct pos_t
+   {
+        double stamp;
+        double x;
+        double y;
+        double z;
+        double qw;
+        double qx;
+        double qy;
+        double qz;
+        uint8  init_status; // 定向状态
+        uint8  rtk_status;  // rtk状态
+        uint8  fusion_mode; // 0: none 1:gnss 2:vision 3:odom
+   };
+   struct state_t 
+   {
+      double stamp;
+      double x;
+      double y;
+      double z;
+      double qw;
+      double qx;
+      double qy;
+      double qz;
+      double vx;
+      double vy;
+      double vz;
+      double bax;
+      double bay;
+      double baz;
+      double bgx;
+      double bgy;
+      double bgz;
+   };
+};
+
+@final
+struct base_station_lla_t //base_station_lla 基站经纬高
+{
+   double lat;
+   double lon;
+   double alt;
+};
+
+@final
+struct vision_ctrl_msg_t { 
+    int32 type;
+    int32 cmd;
+};
+
+@final
+struct vision_mower_control_t
+{
+   uint8 enable_obstacle_detection;       // 1: enable  0:disable
+   uint8 enable_edge_detection;          // 1: enable  0:disable
+   uint8 enable_basestation_detection;  // 1: enable  0:disable
+   uint8 enable_map_create;                  // 1: enable  0:disable  or finish map create
+   uint8 enable_map_location;                // 1: enable  0:disable:
+   uint8 enable_dirty_detection;              // 1: enable  0:disable;
+};
+
+@final
+struct dirft_pose_t
+{
+    double stamp;
+    double x;
+    double y;
+    double z;
+    double qw;
+    double qx;
+    double qy;
+    double qz;
+};

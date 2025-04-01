@@ -1,0 +1,85 @@
+const uint32 OdomData_type = 0xa1;
+const uint32 GNSSData_type = 0xa2;
+const uint32 BaseStationData_type = 0xa3;
+
+module sensor
+{
+
+  @final
+  struct odom_data_t
+  {
+      double stamp;
+      double lin_vel;
+      double ang_vel;
+  };
+  @final
+  struct gnss_data_t
+  {
+      double stamp;
+      double lat;
+      double lon;
+      double alt;
+      float lat_std;
+      float lon_std;
+      float alt_std;
+      float hor_spd;
+      float trk_gnd;
+      float vert_spd;
+      float diff_age;
+      uint16 rtk_status;
+      uint16 num_sta;
+  };
+  @final
+  struct gnss_pos_t
+  {
+      double stamp;
+      double x;
+      double y;
+      double z;
+      uint8 status;
+  };
+  @final
+  struct base_station_data_t
+  {
+      double stamp;
+      uint32 status;
+      uint32 health;
+      double x;
+      double y;
+      double z;
+  };
+  @final
+  struct rtk_signal_t
+  {
+      double stamp;
+      uint8 rtk_status;
+      uint8 connect_state;
+      uint8 rover_quality;
+      uint8 station_quality;
+      uint8 rover_stars;
+      uint8 station_l1_stars;
+      uint8 station_l2_stars;
+      uint8 co_l1_stars;
+      uint8 co_l2_stars;
+      uint8 is_rtk_resetting;
+  };
+};
+
+@final
+struct lora_info_t {
+    uint32 pair_code_scan;
+    uint32 pair_code_channel;
+    uint32 pair_code_locid;
+    uint32 pair_code_netid;
+    uint32 lora_connection_status;
+};
+
+@final
+struct wiper_info_t {
+    uint8 wiper_state;
+};
+
+@final
+struct wiper_ctrl_t {
+    uint32 round;
+};

@@ -1,0 +1,79 @@
+@final
+struct nav_state_data_t
+{
+    uint8 nav_state;
+    uint8 work_mode;
+    uint8 localization_state;
+    uint8 extend_dis_percent;
+    float nav_pos_x_m;
+    float nav_pos_y_m;
+    float heading_deg;
+    double origin_lat_rad;
+    double origin_lon_rad;
+    double origin_alt_m;
+    uint8 vision_vaild;
+    uint8 pos_in_map_type;
+    uint64 pos_in_map_hash;
+    float extend_dis;
+    uint8 avoidance_state;
+    uint8 heading_state;
+};
+
+@final
+struct map_state_data_t
+{
+    uint64 total_map_hash;
+    uint8 last_record_state;
+    uint8 current_record_state;
+    uint8 record_finished_state;
+    uint8 rollback_ready_state;
+    uint8 edit_ready_state;
+    uint8 edit_direction;
+    uint8 record_type;
+    float dis2boundary;
+    float projected_point_x;
+    float projected_point_y;
+    float remain_area;
+    float current_record_area;
+    float current_record_perimeter;
+};
+
+@final
+struct zone_finished_state_t {
+    uint64 zone_hash;
+    uint8 zone_finish_state;
+};
+
+@final
+struct map_covered_state_t
+{
+    uint64 total_coverage_path_hash;
+    uint64 current_coverage_path_hash;
+    uint16 start_point_index;
+    uint16 current_covered_num;
+    uint8 cover_direction;
+    float current_projected_point_x;
+    float current_projected_point_y;
+    float total_working_time;
+    float total_working_area;
+    float remain_working_time;
+    float area_covered_percent;
+    uint8 selected_zones_num;
+    zone_finished_state_t zone_work_state[100];
+};
+
+@final
+struct break_point_data_t
+{
+    uint8 break_point_reason;
+    float break_point_x;
+    float break_point_y;
+};
+
+@final
+struct charger_data_t{
+    uint8 charger_set_state;
+    float charger_pos_yaw;
+    float charger_pos_x;
+    float charger_pos_y;
+};

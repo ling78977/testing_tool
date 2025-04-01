@@ -1,0 +1,15 @@
+@final
+struct mul_audio_t
+{
+    int32 cmd;
+};
+
+struct mul_led_t
+{
+    uint8 red;
+    uint8 green;
+    uint8 blue;
+    int32 udelay;
+    int32 ufrequency;
+    int32 upwm;
+};

@@ -1,0 +1,63 @@
+const uint32 VIO_DATA_MAX_LEN = 512; 
+const uint32 IMG_HEAD_SIZE = 152; // sizeof(hb_vio_buffer_t)
+const uint32 NV12_1920_1080_size = 1413120; // 736*1280*3/2
+const uint32 VIO_ENCODE_DATA_MAX_LEN = 100*1024; 
+const uint32 VIDEO_STREAM_SIZE = 144; // sizeof(VIDEO_STREAM_S)
+const uint32 H264_864_460_size = 819200; 
+
+enum camera_position_e
+{
+    CAMERA_POSITION_LEFT,
+    CAMERA_POSITION_RIGHT,
+    CAMERA_POSITION_REAR,
+    CAMERA_POSITION_MAX
+};
+
+module sensor
+{
+  @final
+  struct img_data_t
+  {
+     char buff[0x100000];
+  };
+  @final
+  struct encode_data_t
+  {
+    camera_position_e type;
+    uint32 buff_size;
+    uint32 width;
+    uint32 height;
+    uint32 frame_rate;
+    uint32 bitrate;
+    char buff[VIO_ENCODE_DATA_MAX_LEN];
+  };
+
+  @final
+  struct req_key_frame_t
+  {
+    camera_position_e type;
+  };
+
+  @final
+  struct vision_data_t
+  {
+     uint32 type;
+     uint32 length;
+     octet value[VIO_DATA_MAX_LEN];
+     double timestamp;
+  };
+
+  @final
+  struct watchback_data_t
+  {
+    char  info[IMG_HEAD_SIZE];
+	octet data[NV12_1920_1080_size];
+  };
+
+  @final
+  struct watchback_h264_data_t
+  {
+  	char  info[VIDEO_STREAM_SIZE];
+	octet data[H264_864_460_size];
+  };
+};

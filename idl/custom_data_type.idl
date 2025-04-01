@@ -1,0 +1,26 @@
+module custom {
+    @final
+    struct data_256_t {
+        char value[256];
+    };
+
+    @final
+    struct data_512_t {
+        char value[512];
+    };
+
+    @final
+    struct data_1024_t {
+        char value[1024];
+    };
+
+    @final
+    struct data_10K_t {
+        char value[10240];
+    };
+
+    @final
+    struct data_1M_t {
+        char value[1024*1024];
+    };
+};
